@@ -1,58 +1,39 @@
 package com.example.myapplication;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends Activity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private IngredientAdapter ingredientAdapter;
+    private RecyclerView.Adapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {        // Ici on créé les objets nécessaire et on les set ensuite.
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);                 // Permet d'afficher le design défini par le fichier main_activity.xml (chaque activité a besoin d'un design)
+        recyclerView = findViewById(R.id.my_recycler_view);     // On instancie le notre recyclerView
+        // use this setting to                                  // findViewById permet de retourner la vue associer à l'id donner en paramètre
+        // improve performance if you know that changes         // L'id donnée est ici notre recyclerView défini dans notre fichier activity_main.xml
+        // in content do not change the layout size
+        // of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);  // On défini notre layoutManager (qui permet d'organiser notre écran) (linéaire ici car notre liste est linéaire, on peut aussi par exemple utiliser GridLayoutManager pour organiser notre écran sous forme de tableau).
+        recyclerView.setLayoutManager(layoutManager);          // On set notre layoutManager précédemment défini.
 
-        // On initialise notre liste de données
-        List<Ingredient> listeCourse = new ArrayList<>();
-        listeCourse.add(new Ingredient("Orange","4"));
-        listeCourse.add(new Ingredient("Tomate","2"));
-        listeCourse.add(new Ingredient("Raisin","Une grappe"));
-        listeCourse.add(new Ingredient("Pain","1/2"));
-        listeCourse.add(new Ingredient("Banane","2 ou 3"));
-        listeCourse.add(new Ingredient("Kiwi","2 ou 3"));
-        listeCourse.add(new Ingredient("Pates","500g"));
-        listeCourse.add(new Ingredient("Raviolis","Une boîte"));
-        listeCourse.add(new Ingredient("Fraises","500g"));
-        listeCourse.add(new Ingredient("Glace","1L"));
-        listeCourse.add(new Ingredient("Pizza","1"));
-        listeCourse.add(new Ingredient("Yaourts","6"));
-        listeCourse.add(new Ingredient("Riz","1kg"));
-        listeCourse.add(new Ingredient("Haricots","500g"));
-        listeCourse.add(new Ingredient("Nuggets","15"));
-        listeCourse.add(new Ingredient("Frites","1kg"));
-        listeCourse.add(new Ingredient("Eau","5L"));
+        List<String> input = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            input.add("Test" + i);
+        }
 
-        // On récupère notre RecyclerView via son id
-        recyclerView=findViewById(R.id.ingredient_recyclerview);
-
-        // On veut un RecyclerView qui utilise un LinearLayoutManager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        // On donne notre adapter à notre RecyclerView
-        ingredientAdapter = new IngredientAdapter(listeCourse);
-        recyclerView.setAdapter(ingredientAdapter);
-
-        // On sépare chaque ligne de notre liste par un trait
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        // define an adapter
+        mAdapter = new MyAdapter(input);
+        recyclerView.setAdapter(mAdapter);
     }
 }
