@@ -10,8 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myapplication.model.Brawlers;
+import com.squareup.picasso.Picasso;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> listValues;
+    private List<Brawlers> listValues;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -33,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    public void add(int position, String item) {
+    public void add(int position, Brawlers item) {
         listValues.add(position, item);
         notifyItemInserted(position);
     }
@@ -44,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<String> listValues) {
+    public MyAdapter(List<Brawlers> listValues) {
         this.listValues = listValues;
     }
 
@@ -64,16 +67,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = listValues.get(position);
-        holder.txtHeader.setText(name);
+        Brawlers currentBrawler = listValues.get(position);
+        final String nom = currentBrawler.getNom();
+        holder.txtHeader.setText(nom);
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 remove(position);
             }
         });
+        final String rarete = currentBrawler.getRarete();
+        holder.txtFooter.setText(rarete);
 
-        holder.txtFooter.setText("Footer: " + name);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

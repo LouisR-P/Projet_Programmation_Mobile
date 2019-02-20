@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.model.RestBrawlstarsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ public class MainActivity extends Activity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter mAdapter;
+    private MainController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {        // Ici on créé les objets nécessaire et on les set ensuite.
@@ -36,40 +39,16 @@ public class MainActivity extends Activity {
         // of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        //TODO appel serveur
-        Gson gson = new GsonBuilder().setLenient().create();
-
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://bridge.buddyweb.fr/api/brawlstars/").addConverterFactory(GsonConverterFactory.create(gson)).build();
-
-        RestBrawlstarsApi restBrawlstarsApi = retrofit.create(RestBrawlstarsApi.class);
-
-        Call<List<Brawlers>> call = restBrawlstarsApi.getListBrawlers();
-        call.enqueue(new Callback<List<Brawlers>>() {
-            @Override
-            public void onResponse(Call<List<Brawlers>> call, Response<List<Brawlers>> response) {
-                List<Brawlers> listBrawlers = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<List<Brawlers>> call, Throwable t) {
-                Log.d("ERROR","Api Error");
-            }
-        });
-        showList();
+        controller = new MainController(this);
+        controller.onStart();
 
     }
 
 
-    public void showList(){
+    public void showList(List<Brawlers> input){
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);  // On défini notre layoutManager (qui permet d'organiser notre écran) (linéaire ici car notre liste est linéaire, on peut aussi par exemple utiliser GridLayoutManager pour organiser notre écran sous forme de tableau).
         recyclerView.setLayoutManager(layoutManager);          // On set notre layoutManager précédemment défini.
-
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }
-
         // define an adapter
         mAdapter = new MyAdapter(input);
         recyclerView.setAdapter(mAdapter);
