@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.myapplication.MainController;
+import com.example.myapplication.MyAdapter;
+import com.example.myapplication.R;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.model.RestBrawlstarsResponse;
 import com.google.gson.Gson;
@@ -42,7 +45,9 @@ public class MainActivity extends Activity {
         controller = new MainController(this);
         controller.onStart();
 
+
     }
+
 
 
     public void showList(List<Brawlers> input){
@@ -50,7 +55,7 @@ public class MainActivity extends Activity {
         layoutManager = new LinearLayoutManager(this);  // On défini notre layoutManager (qui permet d'organiser notre écran) (linéaire ici car notre liste est linéaire, on peut aussi par exemple utiliser GridLayoutManager pour organiser notre écran sous forme de tableau).
         recyclerView.setLayoutManager(layoutManager);          // On set notre layoutManager précédemment défini.
         // define an adapter
-        mAdapter = new MyAdapter(input);
+        mAdapter = new MyAdapter(input, this);
         recyclerView.setAdapter(mAdapter);
     }
 

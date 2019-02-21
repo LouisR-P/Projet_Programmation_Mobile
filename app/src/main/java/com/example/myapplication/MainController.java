@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.util.Log;
 
 import com.example.myapplication.model.Brawlers;
+import com.example.myapplication.view.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
