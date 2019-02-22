@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.view.BrawlerActivity;
 import com.example.myapplication.view.MainActivity;
@@ -23,11 +24,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Brawlers> listValues;
     private Context context;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+
+
+    // Provide a reference to the views for each data item and you provide access to all the views for a data item in a view holder
+    public class ViewHolder extends RecyclerView.ViewHolder {   // ViewHolder permet de tenir (hold) les lignes avec leurs widgets (TextView, Image, etc) en mémoire
         public TextView txtHeader;
         public TextView txtFooter;
         public ImageView image;
@@ -39,8 +39,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            image = v.findViewById(R.id.icon);
+            image = v.findViewById(R.id.imageBrawler);
         }
+    }
+
+
+    // Provide a suitable constructor (depends on the kind of dataset)
+    public MyAdapter(List<Brawlers> listValues,Context context) {
+        this.listValues = listValues;
+        this.context = context;
     }
 
     public void add(int position, Brawlers item) {
@@ -51,12 +58,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void remove(int position) {
         listValues.remove(position);
         notifyItemRemoved(position);
-    }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Brawlers> listValues,Context context) {
-        this.listValues = listValues;
-        this.context = context;
     }
 
     //viewHolder correspond à une cellule.
@@ -84,7 +85,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final String rarete = currentBrawler.getRarete();
         holder.txtFooter.setText(rarete);
 
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
+        final String image = currentBrawler.getImage();
+        Glide.with(context).asBitmap().load(image).into(holder.image);
+
+        holder.txtHeader.setOnClickListener(new OnClickListener() {     // Ouvre une nouvelle activité en cliquant sur un élément de la liste
             @Override
             public void onClick(View v) {
 

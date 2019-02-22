@@ -14,7 +14,6 @@ import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.model.RestBrawlstarsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
