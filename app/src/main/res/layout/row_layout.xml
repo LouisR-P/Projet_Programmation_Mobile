@@ -24,7 +24,8 @@
         android:ellipsize="marquee"
         android:text="Description"
         android:textSize="12sp"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:fontFamily="@font/brawlstars_font"/>
 
     <TextView
         android:id="@+id/firstLine"
@@ -37,6 +38,7 @@
         android:layout_toRightOf="@id/imageBrawler"
         android:gravity="center_vertical"
         android:text="Example application"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:fontFamily="@font/brawlstars_font"/>
 
 </RelativeLayout>

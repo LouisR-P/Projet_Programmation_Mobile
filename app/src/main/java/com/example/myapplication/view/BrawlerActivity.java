@@ -1,18 +1,13 @@
 package com.example.myapplication.view;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-
-import org.w3c.dom.Text;
 
 public class BrawlerActivity extends AppCompatActivity {
 
@@ -26,17 +21,25 @@ public class BrawlerActivity extends AppCompatActivity {
         getIncomingIntent();
     }
 
-    private void getIncomingIntent(){
-        if(getIntent().hasExtra("brawler_description")){
+    private void getIncomingIntent() {
+        if (getIntent().hasExtra("brawler_nom") && getIntent().hasExtra("brawler_rarete") && getIntent().hasExtra("brawler_image3d")) {
+            String brawlerNom = getIntent().getStringExtra("brawler_nom");
+            String brawlerRarete = getIntent().getStringExtra("brawler_rarete");
+            String brawlerImage3D = getIntent().getStringExtra("brawler_image3d");
+            setBrawlerInfo(brawlerNom, brawlerRarete, brawlerImage3D);
 
-            String brawlerName = getIntent().getStringExtra("brawler_description");
-
-            setBrawlerName(brawlerName);
         }
     }
 
-    private void setBrawlerName(String brawlerName){
-        TextView name = findViewById(R.id.brawler_description);
-        name.setText(brawlerName);
+    private void setBrawlerInfo(String brawlerNom, String brawlerRarete, String brawlerImage3D) {
+
+        TextView nom = findViewById(R.id.brawler_nom);
+        nom.setText(brawlerNom);
+
+        TextView rarete = findViewById(R.id.brawler_rarete);
+        rarete.setText(brawlerRarete);
+
+        ImageView image = findViewById(R.id.brawler_image3d);
+        Glide.with(this).asBitmap().load(brawlerImage3D).into(image);
     }
 }

@@ -9,21 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.view.BrawlerActivity;
-import com.example.myapplication.view.MainActivity;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Brawlers> listValues;
     private Context context;
-
 
 
     // Provide a reference to the views for each data item and you provide access to all the views for a data item in a view holder
@@ -31,6 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public TextView txtHeader;
         public TextView txtFooter;
         public ImageView image;
+        public ImageView image3d;
         public View layout;
 
         //Constructeur
@@ -88,12 +84,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final String image = currentBrawler.getImage();
         Glide.with(context).asBitmap().load(image).into(holder.image);
 
+        final String image3d = currentBrawler.getImage3d();
+
         holder.txtHeader.setOnClickListener(new OnClickListener() {     // Ouvre une nouvelle activité en cliquant sur un élément de la liste
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, BrawlerActivity.class);
-                intent.putExtra("brawler_description",nom + rarete);
+                intent.putExtra("brawler_image3d",image3d);
+                intent.putExtra("brawler_nom",nom);
+                intent.putExtra("brawler_rarete",rarete);
                 context.startActivity(intent);
             }
         });

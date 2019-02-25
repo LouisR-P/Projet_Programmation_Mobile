@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.example.myapplication.model.Brawlers;

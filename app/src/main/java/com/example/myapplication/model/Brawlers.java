@@ -1,17 +1,16 @@
 package com.example.myapplication.model;
 
-import android.media.Image;
-
 public class Brawlers {
 
     private String nom;
     private String rarete;
-    private String pointsDeVie;
+    private String points_de_vie;
     private String degats_attaque_primaire;
     private String degats_attaque_super;
     private String vitesse;
     private String description;
     private String image;
+    private String image3d;
 
     public String getNom() {
         return nom;
@@ -30,11 +29,11 @@ public class Brawlers {
     }
 
     public String getPointsDeVie() {
-        return pointsDeVie;
+        return points_de_vie;
     }
 
-    public void setPointsDeVie(String pointsDeVie) {
-        this.pointsDeVie = pointsDeVie;
+    public void setPointsDeVie(String points_de_vie) {
+        this.points_de_vie = points_de_vie;
     }
 
     public String getDegats_attaque_primaire() {
@@ -75,6 +74,15 @@ public class Brawlers {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+
+    public String getImage3d() {
+        return image3d;
+    }
+
+    public void setImage3d(String image3d) {
+        this.image3d = image3d;
     }
 
 }
