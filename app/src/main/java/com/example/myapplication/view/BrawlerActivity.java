@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.model.Brawlers;
+import com.google.gson.Gson;
 
 public class BrawlerActivity extends AppCompatActivity {
 
@@ -22,14 +24,14 @@ public class BrawlerActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        if (getIntent().hasExtra("brawler_nom") && getIntent().hasExtra("brawler_rarete") && getIntent().hasExtra("brawler_image3d")) {
-            String brawlerNom = getIntent().getStringExtra("brawler_nom");
-            String brawlerRarete = getIntent().getStringExtra("brawler_rarete");
-            String brawlerImage3D = getIntent().getStringExtra("brawler_image3d");
-            setBrawlerInfo(brawlerNom, brawlerRarete, brawlerImage3D);
+            String json = getIntent().getStringExtra("brawler_json");
+
+            Gson gson = new Gson();
+            Brawlers brawlers = gson.fromJson(json, Brawlers.class);
+
+            setBrawlerInfo(brawlers.getNom(), brawlers.getRarete(), brawlers.getImage3d());
 
         }
-    }
 
     private void setBrawlerInfo(String brawlerNom, String brawlerRarete, String brawlerImage3D) {
 
@@ -37,9 +39,32 @@ public class BrawlerActivity extends AppCompatActivity {
         nom.setText(brawlerNom);
 
         TextView rarete = findViewById(R.id.brawler_rarete);
+
+        ImageView background = findViewById(R.id.background);
+
+        if (brawlerRarete.equals("Commun")){
+            background.setImageResource(R.drawable.commun);
+        }
+        else if (brawlerRarete.equals("Rare")){
+            background.setImageResource(R.drawable.rare);
+        }
+        else if (brawlerRarete.equals("Super rare")){
+            background.setImageResource(R.drawable.superrare);
+        }
+        else if (brawlerRarete.equals("Épique")){
+            background.setImageResource(R.drawable.epique);
+        }
+        else if (brawlerRarete.equals("Mythique")){
+            background.setImageResource(R.drawable.mythique);
+        }
+        else if (brawlerRarete.equals("Légendaire")){
+            background.setImageResource(R.drawable.legendaire);
+        }
+
         rarete.setText(brawlerRarete);
 
         ImageView image = findViewById(R.id.brawler_image3d);
         Glide.with(this).asBitmap().load(brawlerImage3D).into(image);
+
     }
 }

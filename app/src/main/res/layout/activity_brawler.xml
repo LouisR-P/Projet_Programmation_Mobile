@@ -1,46 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100">
+    android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/background"
+        style="@style/BackGroundImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="25dp"
-        android:id="@+id/brawler_image3d"
-        android:adjustViewBounds="true"
-        android:maxWidth="200dp"
-        android:maxHeight="200dp"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/ic_launcher"
-
-        />
-
-    <TextView
-        android:id="@+id/brawler_nom"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/secondLine"
-        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/imageBrawler"
-        android:gravity="center_vertical"
-        android:text="Example application"
-        android:textSize="24sp"
-        android:layout_marginLeft="15dp"
-        android:textColor="@android:color/white"
-        android:fontFamily="@font/brawlstars_font"/>
+        android:layout_centerHorizontal="true" />
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/brawler_image3d"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:maxHeight="200dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/brawler_nom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Example application"
+            android:textSize="24sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
+        <TextView
         android:id="@+id/brawler_rarete"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/imageBrawler"
         android:ellipsize="marquee"
         android:text="Description"
         android:textSize="20sp"
@@ -50,4 +53,7 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/brawlstars_font"/>
 
-</LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

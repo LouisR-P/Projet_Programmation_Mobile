@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.view.BrawlerActivity;
+import com.google.gson.Gson;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Brawlers> listValues;
@@ -73,7 +74,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {   //binding entre les données récupérées et le contenu des TextViews (et de l'image bientôt) dans le ViewHolder
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        Brawlers currentBrawler = listValues.get(position);
+        final Brawlers currentBrawler = listValues.get(position);
 
         final String nom = currentBrawler.getNom();
         holder.txtHeader.setText(nom);
@@ -91,9 +92,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, BrawlerActivity.class);
-                intent.putExtra("brawler_image3d",image3d);
-                intent.putExtra("brawler_nom",nom);
-                intent.putExtra("brawler_rarete",rarete);
+                Gson gson = new Gson();
+                intent.putExtra("brawler_json", gson.toJson(currentBrawler));
                 context.startActivity(intent);
             }
         });

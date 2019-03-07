@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BackGroundImageView">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/commun</item>
+    </style>
+
 </resources>
