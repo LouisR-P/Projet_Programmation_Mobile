@@ -1,7 +1,8 @@
-package com.example.myapplication;
+package com.example.myapplication.controller;
 
 import android.util.Log;
 
+import com.example.myapplication.RestBrawlstarsApi;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.view.MainActivity;
 import com.google.gson.Gson;
@@ -14,8 +15,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-// QUESTION : Que mettre d'autre dans le dossier Controller ? MyAdapter aussi ? Le onClick qui permet d'afficher une nouvelle activité ?
 
 public class MainController {   // Architecture MVC -> Contrôlleur (contient la logique concernant les actions effectuées par l'utilisateur)
 

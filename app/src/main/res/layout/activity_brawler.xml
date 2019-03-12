@@ -54,6 +54,71 @@
         android:fontFamily="@font/brawlstars_font"/>
 
 
+        <TextView
+            android:id="@+id/brawler_points_de_vie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="Points de vie"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="125dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
+        <TextView
+            android:id="@+id/brawler_degats_attaque_primaire"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="Dégâts attaque primaire"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
+        <TextView
+            android:id="@+id/brawler_degats_attaque_super"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="Dégâts attaque super"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
+        <TextView
+            android:id="@+id/brawler_vitesse"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="Vitesse"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
+        <TextView
+            android:id="@+id/brawler_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="Description"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/brawlstars_font"/>
+
     </LinearLayout>
 
 </RelativeLayout>

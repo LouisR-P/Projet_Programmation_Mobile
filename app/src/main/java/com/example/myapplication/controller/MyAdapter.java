@@ -1,6 +1,4 @@
-package com.example.myapplication;
-
-import java.util.List;
+package com.example.myapplication.controller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.R;
 import com.example.myapplication.model.Brawlers;
 import com.example.myapplication.view.BrawlerActivity;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Brawlers> listValues;

@@ -11,6 +11,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.model.Brawlers;
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 public class BrawlerActivity extends AppCompatActivity {
 
     private static final String TAG = "BrawlerActivity";
@@ -29,19 +31,25 @@ public class BrawlerActivity extends AppCompatActivity {
             Gson gson = new Gson();
             Brawlers brawlers = gson.fromJson(json, Brawlers.class);
 
-            setBrawlerInfo(brawlers.getNom(), brawlers.getRarete(), brawlers.getImage3d());
+            setBrawlerInfo(brawlers.getImage3d(), brawlers.getNom(), brawlers.getRarete(), brawlers.getPointsDeVie(), brawlers.getDegats_attaque_primaire(), brawlers.getDegats_attaque_super(), brawlers.getVitesse(), brawlers.getDescription());
 
         }
 
-    private void setBrawlerInfo(String brawlerNom, String brawlerRarete, String brawlerImage3D) {
+    private void setBrawlerInfo(String brawlerImage3D, String brawlerNom, String brawlerRarete, String brawlerPointsDeVie, String brawlerDegatsAttaquePrimaire, String brawlerDegatsAttaqueSuper, String brawlerVitesse, String brawlerDescription) {
 
+        // Image 3D du brawler
+        ImageView image = findViewById(R.id.brawler_image3d);
+        Glide.with(this).asBitmap().load(brawlerImage3D).into(image);
+
+        // Nom du brawler
         TextView nom = findViewById(R.id.brawler_nom);
         nom.setText(brawlerNom);
 
+        // Rareté du brawler
         TextView rarete = findViewById(R.id.brawler_rarete);
+        rarete.setText(brawlerRarete);
 
-        ImageView background = findViewById(R.id.background);
-
+        ImageView background = findViewById(R.id.background);   // Assignation du background de bonne couleur en fonction de la rareté du brawler.
         if (brawlerRarete.equals("Commun")){
             background.setImageResource(R.drawable.commun);
         }
@@ -61,10 +69,25 @@ public class BrawlerActivity extends AppCompatActivity {
             background.setImageResource(R.drawable.legendaire);
         }
 
-        rarete.setText(brawlerRarete);
+        // Points de vie du brawler
+        TextView points_de_vie = findViewById(R.id.brawler_points_de_vie);
+        points_de_vie.setText("Points de vie  :     " + brawlerPointsDeVie);
 
-        ImageView image = findViewById(R.id.brawler_image3d);
-        Glide.with(this).asBitmap().load(brawlerImage3D).into(image);
+        // Dégâts attaque primaire du brawler
+        TextView degats_attaque_primaire = findViewById(R.id.brawler_degats_attaque_primaire);
+        degats_attaque_primaire.setText("Dégâts attaque primaire  :     " + brawlerDegatsAttaquePrimaire);
+
+        // Dégâts attaque super du brawler
+        TextView degats_attaque_super = findViewById(R.id.brawler_degats_attaque_super);
+        degats_attaque_super.setText("Dégâts attaque super  :       " + brawlerDegatsAttaqueSuper);
+
+        // Vitesse du brawler
+        TextView vitesse = findViewById(R.id.brawler_vitesse);
+        vitesse.setText("Vitesse  :     " + brawlerVitesse);
+
+        // Description du brawler
+        TextView description = findViewById(R.id.brawler_description);
+        description.setText("Description  :     " + brawlerDescription);
 
     }
 }

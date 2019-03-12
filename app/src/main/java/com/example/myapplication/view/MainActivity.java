@@ -7,8 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.example.myapplication.MainController;
-import com.example.myapplication.MyAdapter;
+import com.example.myapplication.controller.MainController;
+import com.example.myapplication.controller.MyAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.model.Brawlers;
 
