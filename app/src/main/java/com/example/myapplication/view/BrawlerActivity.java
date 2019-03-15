@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.model.Brawlers;
+import com.example.myapplication.model.Brawler;
 import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
 
 public class BrawlerActivity extends AppCompatActivity {
 
@@ -29,9 +27,9 @@ public class BrawlerActivity extends AppCompatActivity {
             String json = getIntent().getStringExtra("brawler_json");
 
             Gson gson = new Gson();
-            Brawlers brawlers = gson.fromJson(json, Brawlers.class);
+            Brawler brawler = gson.fromJson(json, Brawler.class);
 
-            setBrawlerInfo(brawlers.getImage3d(), brawlers.getNom(), brawlers.getRarete(), brawlers.getPointsDeVie(), brawlers.getDegats_attaque_primaire(), brawlers.getDegats_attaque_super(), brawlers.getVitesse(), brawlers.getDescription());
+            setBrawlerInfo(brawler.getImage3d(), brawler.getNom(), brawler.getRarete(), brawler.getPointsDeVie(), brawler.getDegats_attaque_primaire(), brawler.getDegats_attaque_super(), brawler.getVitesse(), brawler.getDescription());
 
         }
 

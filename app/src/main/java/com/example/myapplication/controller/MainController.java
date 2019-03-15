@@ -3,7 +3,7 @@ package com.example.myapplication.controller;
 import android.util.Log;
 
 import com.example.myapplication.RestBrawlstarsApi;
-import com.example.myapplication.model.Brawlers;
+import com.example.myapplication.model.Brawler;
 import com.example.myapplication.view.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,16 +32,16 @@ public class MainController {   // Architecture MVC -> Contrôlleur (contient la
 
         RestBrawlstarsApi restBrawlstarsApi = retrofit.create(RestBrawlstarsApi.class);
 
-        Call<List<Brawlers>> call = restBrawlstarsApi.getListBrawlers();
-        call.enqueue(new Callback<List<Brawlers>>() {
+        Call<List<Brawler>> call = restBrawlstarsApi.getListBrawlers();
+        call.enqueue(new Callback<List<Brawler>>() {
             @Override
-            public void onResponse(Call<List<Brawlers>> call, Response<List<Brawlers>> response) {
-                List<Brawlers> listBrawlers = response.body();
+            public void onResponse(Call<List<Brawler>> call, Response<List<Brawler>> response) {
+                List<Brawler> listBrawlers = response.body();
                 activity.showList(listBrawlers);
             }
 
             @Override
-            public void onFailure(Call<List<Brawlers>> call, Throwable t) {
+            public void onFailure(Call<List<Brawler>> call, Throwable t) {
                 Log.d("ERROR","Api Error");
             }
         });

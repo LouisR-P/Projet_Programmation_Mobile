@@ -4,13 +4,13 @@ import java.util.List;
 
 public class RestBrawlstarsResponse {   // La réponse de l'API est la liste des brawlers avec leurs caractéristiques
 
-    private List<Brawlers> brawlers;
+    private List<Brawler> brawlers;
 
-    public List<Brawlers> getBrawlers() {
+    public List<Brawler> getBrawlers() {
         return brawlers;
     }
 
-    public void setBrawlers(List<Brawlers> brawlers) {
+    public void setBrawlers(List<Brawler> brawlers) {
         this.brawlers = brawlers;
     }
 }

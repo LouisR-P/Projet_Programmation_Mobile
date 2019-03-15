@@ -1,6 +1,6 @@
 package com.example.myapplication.model;
 
-public class Brawlers {
+public class Brawler {
 
     private String nom;
     private String rarete;
