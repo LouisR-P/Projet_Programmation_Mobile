@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);                 // Permet d'afficher le design défini par le fichier main_activity.xml (chaque activité a besoin d'un design)
 
       //  ImageView brawlstarsImage = (ImageView) findViewById(R.id.imageBrawlStars) ;        // image brawlstars header
-        int imageResource = getResources().getIdentifier("@drawable/brawlstars",null,this.getPackageName());
+       // int imageResource = getResources().getIdentifier("@drawable/brawlstars",null,this.getPackageName());
         //brawlstarsImage.setImageResource(imageResource);
 
         recyclerView = findViewById(R.id.my_recycler_view);     // On instancie le notre recyclerView
