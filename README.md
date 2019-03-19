@@ -12,3 +12,13 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 - Création de l'API Rest.
 
 ## Consignes respectées :
+- Deux écrans : Un écran avec une liste et un écran avec un détail de l’item de cette liste.
+- Appel WebService à une API Rest.
+- Stockage des données en cache.
+- Fonctions supplémentaires :
+          - Architecture ( MVC ou MVP ou MVVM ) 6 points
+Gitflow 2 points
+Animation entre écrans 2 points
+Notifications Push ( Firebase ) 2 points
+Autres fonctionnalités (libre à vous, plus il y en a mieux c’est.) 2 points
+
