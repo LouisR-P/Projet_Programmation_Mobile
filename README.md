@@ -37,4 +37,4 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 
 - Affiche la liste des brawlers avec une barre de recherche.
 
-<img src="img_readme/brawlstars_accueil.jpg" alt="liste brawlers">   <img src="img_readme/brawlstars_accueilbarrederecherche.jpg" alt="recherche">
+<img src="img_readme/brawlstars_accueil.jpg" alt="liste brawlers">   <img src="img_readme/brawlstars_accueil_barrederecherche.jpg" alt="recherche">
