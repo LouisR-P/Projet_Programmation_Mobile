@@ -16,11 +16,25 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 - Appel WebService à une API Rest.
 - Stockage des données en cache.
 - Fonctions supplémentaires :
-          - Architecture MVC
-          - Initiation à Gitflow (branche feature)
-          - Écran d'introduction (SplashActivity)
-          - Animation (fondu) entre l'écran Splash et l'écran d'accueil contenant la liste des éléments
-          - Barre de recherche "dynamique" (SearchView & Toolbar)
-          - Création d'une API Rest (bridge.buddyweb.fr)
-          - Stockages en cache des données de l'API (sharedPreferences)
-          - Implémentation de Fabric (Crash Analytics)
+  - Architecture MVC
+  - Initiation à Gitflow (branche feature)
+  - Écran d'introduction (SplashActivity)
+  - Animation (fondu) entre l'écran Splash et l'écran d'accueil contenant la liste des éléments
+  - Barre de recherche "dynamique" (SearchView & Toolbar)
+  - Création d'une API Rest (bridge.buddyweb.fr)
+  - Stockages en cache des données de l'API (sharedPreferences)
+  - Implémentation de Fabric (Crash Analytics)
+ 
+## Fonctionnalités :
+
+### Écran d'introduction
+
+- Splash affichant une pokeball.
+
+<img src="img_readme/splash.png" alt="splash">
+
+### Écran d'accueil
+
+- Affiche la liste des brawlers avec une barre de recherche.
+
+<img src="img_readme/liste_brawlers.png" alt="liste brawlers">   <img src="img_readme/recherche.png" alt="recherche">
