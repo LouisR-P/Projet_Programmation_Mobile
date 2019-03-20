@@ -31,10 +31,10 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 
 - Splash affichant une pokeball.
 
-<img src="img_readme/brawlstars_splash.png" alt="splash">
+<img src="img_readme/brawlstars_splash.jpg" alt="splash">
 
 ### Écran d'accueil
 
 - Affiche la liste des brawlers avec une barre de recherche.
 
-<img src="img_readme/brawlstars_accueil.png" alt="liste brawlers">   <img src="img_readme/brawlstars_accueilbarrederecherche.png" alt="recherche">
+<img src="img_readme/brawlstars_accueil.jpg" alt="liste brawlers">   <img src="img_readme/brawlstars_accueilbarrederecherche.jpg" alt="recherche">
