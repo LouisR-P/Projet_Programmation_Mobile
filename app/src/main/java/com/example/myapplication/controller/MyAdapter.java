@@ -32,20 +32,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
         public TextView txtHeader;
         public TextView txtFooter;
         public ImageView image;
-        public ImageView image3d;
         public View layout;
 
         //Constructeur
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            txtHeader = v.findViewById(R.id.firstLine);
+            txtFooter = v.findViewById(R.id.secondLine);
             image = v.findViewById(R.id.imageBrawler);
         }
 
     }
-
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(List<Brawler> listValues, Context context) {
@@ -54,6 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
         this.context = context;
     }
 
+    // Les deux méthodes suivantes ne sont jamais utilisées ici
     public void add(int position, Brawler item) {
         listValues.add(position, item);
         notifyItemInserted(position);
@@ -92,8 +91,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
         final String image = currentBrawler.getImage();
         Glide.with(context).asBitmap().load(image).into(holder.image);
 
-        //final String image3d = currentBrawler.getImage3d();
-
         holder.txtHeader.setOnClickListener(new OnClickListener() {     // Ouvre une nouvelle activité en cliquant sur un élément de la liste
             @Override
             public void onClick(View v) {
@@ -113,7 +110,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
     }
 
 
-    // Barre de recherche (méthodes override Filterable) :
+    // Barre de recherche (méthodes override de la classe Filterable) :
     @Override
     public Filter getFilter() {
         return brawlersFilter;
@@ -150,7 +147,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
             notifyDataSetChanged();
         }
     };
-
-
 
 }

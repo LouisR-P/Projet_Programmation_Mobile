@@ -8,7 +8,6 @@ public class Brawler {
     private String degats_attaque_primaire;
     private String degats_attaque_super;
     private String vitesse;
-    private String description;
     private String image;
     private String image3d;
 
@@ -58,14 +57,6 @@ public class Brawler {
 
     public void setVitesse(String vitesse) {
         this.vitesse = vitesse;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImage() {

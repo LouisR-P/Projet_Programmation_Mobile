@@ -18,18 +18,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private MyAdapter mAdapter;
-    private MainController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {        // Ici on créé les objets nécessaire et on les set ensuite.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);                 // Permet d'afficher le design défini par le fichier main_activity.xml (chaque activité a besoin d'un design)
-
-      //  ImageView brawlstarsImage = (ImageView) findViewById(R.id.imageBrawlStars) ;        // image brawlstars header
-       // int imageResource = getResources().getIdentifier("@drawable/brawlstars",null,this.getPackageName());
-        //brawlstarsImage.setImageResource(imageResource);
 
         recyclerView = findViewById(R.id.my_recycler_view);     // On instancie le notre recyclerView
         // use this setting to                                  // findViewById permet de retourner la vue associer à l'id donner en paramètre
@@ -38,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         // of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Brawlers");
 
         toolbar.inflateMenu(R.menu.menu_main);
 
-        controller = new MainController(this);
+        MainController controller = new MainController(this);
         controller.onStart();
 
     }
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showList(List<Brawler> input){
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);  // On défini notre layoutManager (qui permet d'organiser notre écran) (linéaire ici car notre liste est linéaire, on peut aussi par exemple utiliser GridLayoutManager pour organiser notre écran sous forme de tableau).
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);          // On set notre layoutManager précédemment défini.
         // define an adapter
         mAdapter = new MyAdapter(input, this);

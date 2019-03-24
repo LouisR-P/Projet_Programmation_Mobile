@@ -19,7 +19,6 @@ public class BrawlerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brawler);
-
         getIncomingIntent();
     }
 
@@ -29,11 +28,11 @@ public class BrawlerActivity extends AppCompatActivity {
             Gson gson = new Gson();
             Brawler brawler = gson.fromJson(json, Brawler.class);
 
-            setBrawlerInfo(brawler.getImage3d(), brawler.getNom(), brawler.getRarete(), brawler.getPointsDeVie(), brawler.getDegats_attaque_primaire(), brawler.getDegats_attaque_super(), brawler.getVitesse(), brawler.getDescription());
+            setBrawlerInfo(brawler.getImage3d(), brawler.getNom(), brawler.getRarete(), brawler.getPointsDeVie(), brawler.getDegats_attaque_primaire(), brawler.getDegats_attaque_super(), brawler.getVitesse());
 
         }
 
-    private void setBrawlerInfo(String brawlerImage3D, String brawlerNom, String brawlerRarete, String brawlerPointsDeVie, String brawlerDegatsAttaquePrimaire, String brawlerDegatsAttaqueSuper, String brawlerVitesse, String brawlerDescription) {
+    private void setBrawlerInfo(String brawlerImage3D, String brawlerNom, String brawlerRarete, String brawlerPointsDeVie, String brawlerDegatsAttaquePrimaire, String brawlerDegatsAttaqueSuper, String brawlerVitesse) {
 
         // Image 3D du brawler
         ImageView image = findViewById(R.id.brawler_image3d);
@@ -82,10 +81,6 @@ public class BrawlerActivity extends AppCompatActivity {
         // Vitesse du brawler
         TextView vitesse = findViewById(R.id.brawler_vitesse);
         vitesse.setText("Vitesse  :     " + brawlerVitesse);
-
-        // Description du brawler
-        TextView description = findViewById(R.id.brawler_description);
-        description.setText("Description  :     " + brawlerDescription);
 
     }
 }
