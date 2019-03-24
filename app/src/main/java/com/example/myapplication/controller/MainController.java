@@ -20,7 +20,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainController {   // Architecture MVC -> Contrôlleur (contient la logique concernant les actions effectuées par l'utilisateur)
+// Rappel Architecture MVC -> dossier Controller = contient la logique concernant les actions effectuées par l'utilisateur.
+
+public class MainController {
 
     private MainActivity activity;
     private SharedPreferences sharedPreferences;
@@ -52,14 +54,16 @@ public class MainController {   // Architecture MVC -> Contrôlleur (contient la
                     Log.d("ERROR", "Api Error");
                 }
             });
+
         } else {
-            String louis = sharedPreferences.getString("1", "null");
+            String str = sharedPreferences.getString("1", "null");
             Type listT = new TypeToken<List<Brawler>>(){}.getType();
-            List<Brawler> abc = gson.fromJson(louis, listT);
-            activity.showList(abc);
+            List<Brawler> brawlers = gson.fromJson(str, listT);
+            activity.showList(brawlers);
         }
     }
 
+    // Stockage en cache
     private void storeData(List<Brawler> listBrawlers) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();

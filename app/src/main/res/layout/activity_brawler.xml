@@ -63,7 +63,7 @@
             android:textSize="20sp"
             android:singleLine="true"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="135dp"
             android:textColor="@android:color/white"
             android:fontFamily="@font/brawlstars_font"/>
 
@@ -76,7 +76,7 @@
             android:textSize="20sp"
             android:singleLine="true"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textColor="@android:color/white"
             android:fontFamily="@font/brawlstars_font"/>
 
@@ -89,7 +89,7 @@
             android:textSize="20sp"
             android:singleLine="true"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textColor="@android:color/white"
             android:fontFamily="@font/brawlstars_font"/>
 
@@ -102,20 +102,7 @@
             android:textSize="20sp"
             android:singleLine="true"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/brawlstars_font"/>
-
-        <TextView
-            android:id="@+id/brawler_description"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:text="Description"
-            android:textSize="20sp"
-            android:singleLine="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textColor="@android:color/white"
             android:fontFamily="@font/brawlstars_font"/>
 
