@@ -45,7 +45,7 @@ La barre de recherche est "dynamique" (elle disparaît lors du scroll vers le ba
 
 ### Écran du détail du Brawler
 
-- Affiche les caractéristiques du brawler sélectionné (rareté, points de vie, dégâts attaque primaire/super, vitesse, description). La couleur de l'image de fond change en fonction de la rareté du brawler sélectionné (commun, rare, ...) :
+- Affiche les caractéristiques du brawler sélectionné (rareté, points de vie, dégâts attaque primaire/super, vitesse). La couleur de l'image de fond change en fonction de la rareté du brawler sélectionné (commun, rare, ...) :
 
 <img src="img_readme/brawler_commun.jpg" width="280" alt="detail"> <img src="img_readme/brawler_rare.jpg" width="280" alt="detail"> <img src="img_readme/brawler_superrare.jpg" width="280" alt="detail">
 
