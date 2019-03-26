@@ -24,6 +24,7 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
   - Création d'une API Rest (bridge.buddyweb.fr)
   - Stockages en cache des données de l'API (sharedPreferences)
   - Implémentation de Fabric (Crash Analytics)
+  - Ajout de l'APK (chemin : app/src/main/java/com/example/myapplication)
  
 ## Fonctionnalités :
 
