@@ -40,9 +40,13 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 <img src="img_readme/brawlstars_accueil.jpg" alt="liste brawlers">   <img src="img_readme/brawlstars_accueil_recherche_b.jpg" alt="recherche">
 
 La barre de recherche est "dynamique" (elle disparaît lors du scroll vers le bas) :
-<img src="img_readme/brawlstars_accueil_recherche_b.jpg" alt="recherche">
+
+<img src="img_readme/brawlstars_accueil_barrederecherche.jpg" alt="recherche">
 
 ### Écran du détail du Brawler
 
-- Affiche les caractéristiques du brawler sélectionné (rareté, points de vie, dégâts attaque primaire/super, vitesse, description)
-<img src="img_readme/brawlstars_descriptif.jpg" alt="detail">
+- Affiche les caractéristiques du brawler sélectionné (rareté, points de vie, dégâts attaque primaire/super, vitesse). La couleur de l'image de fond change en fonction de la rareté du brawler sélectionné (commun, rare, ...) :
+
+<img src="img_readme/brawler_commun.jpg" width="280" alt="detail"> <img src="img_readme/brawler_rare.jpg" width="280" alt="detail"> <img src="img_readme/brawler_superrare.jpg" width="280" alt="detail">
+
+<img src="img_readme/brawler_epique.jpg" width="280" alt="detail"> <img src="img_readme/brawler_mythique.jpg" width="280" alt="detail"> <img src="img_readme/brawler_legendaire.jpg" width="280" alt="detail">
