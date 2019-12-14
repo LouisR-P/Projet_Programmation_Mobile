@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.example.myapplication.RestBrawlstarsApi;
 import com.example.myapplication.model.Brawler;
-import com.example.myapplication.view.MainActivity;
+import com.example.myapplication.view.BrawlersFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -22,14 +22,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 // Rappel Architecture MVC -> dossier Controller = contient la logique concernant les actions effectuées par l'utilisateur.
 
-public class MainController {
+public class BrawlersController {
 
-    private MainActivity activity;
+    private BrawlersFragment activity;
     private SharedPreferences sharedPreferences;
 
-    public MainController(MainActivity mainActivity) {
-        this.activity = mainActivity;
-        this.sharedPreferences = activity.getSharedPreferences("1", Context.MODE_PRIVATE);
+    public BrawlersController(BrawlersFragment brawlersFragment) {
+        this.activity = brawlersFragment;
+        this.sharedPreferences = activity.getContext().getSharedPreferences("1", Context.MODE_PRIVATE);
     }
 
     public void onStart() {
@@ -45,6 +45,7 @@ public class MainController {
                 @Override
                 public void onResponse(Call<List<Brawler>> call, Response<List<Brawler>> response) {
                     List<Brawler> listBrawlers = response.body();
+                    activity.showList(listBrawlers);
                     storeData(listBrawlers);
                 }
 
@@ -58,6 +59,7 @@ public class MainController {
             String str = sharedPreferences.getString("1", "null");
             Type listT = new TypeToken<List<Brawler>>(){}.getType();
             List<Brawler> brawlers = gson.fromJson(str, listT);
+            activity.showList(brawlers);
         }
     }
 

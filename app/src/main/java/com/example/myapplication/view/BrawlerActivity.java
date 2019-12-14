@@ -1,8 +1,6 @@
 package com.example.myapplication.view;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,9 +9,10 @@ import com.example.myapplication.R;
 import com.example.myapplication.model.Brawler;
 import com.google.gson.Gson;
 
-public class BrawlerActivity extends AppCompatActivity {
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-    private static final String TAG = "BrawlerActivity";
+public class BrawlerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,8 +28,7 @@ public class BrawlerActivity extends AppCompatActivity {
             Brawler brawler = gson.fromJson(json, Brawler.class);
 
             setBrawlerInfo(brawler.getImage3d(), brawler.getNom(), brawler.getRarete(), brawler.getPointsDeVie(), brawler.getDegats_attaque_primaire(), brawler.getDegats_attaque_super(), brawler.getVitesse());
-
-        }
+    }
 
     private void setBrawlerInfo(String brawlerImage3D, String brawlerNom, String brawlerRarete, String brawlerPointsDeVie, String brawlerDegatsAttaquePrimaire, String brawlerDegatsAttaqueSuper, String brawlerVitesse) {
 
@@ -81,6 +79,6 @@ public class BrawlerActivity extends AppCompatActivity {
         // Vitesse du brawler
         TextView vitesse = findViewById(R.id.brawler_vitesse);
         vitesse.setText("Vitesse  :     " + brawlerVitesse);
-
     }
+
 }

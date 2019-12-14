@@ -1,65 +1,34 @@
 package com.example.myapplication.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.myapplication.R;
 import com.example.myapplication.controller.MainController;
-import com.example.myapplication.controller.MyAdapter;
-import com.example.myapplication.model.Brawler;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private MyAdapter mAdapter;
+    private MainController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {        // Ici on créé les objets nécessaire et on les set ensuite.
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);                 // Permet d'afficher le design défini par le fichier main_activity.xml (chaque activité a besoin d'un design)
-
-        recyclerView = findViewById(R.id.my_recycler_view);     // On instancie le notre recyclerView
-        // use this setting to                                  // findViewById permet de retourner la vue associer à l'id donner en paramètre
-        // improve performance if you know that changes         // L'id donnée est ici notre recyclerView défini dans notre fichier activity_main.xml
-        // in content do not change the layout size
-        // of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Brawlers");
-
-        toolbar.inflateMenu(R.menu.menu_main);
-
-        MainController controller = new MainController(this);
+        setContentView(R.layout.activity_main);
+        // Permet d'afficher le design défini par le fichier main_activity.xml (chaque activité a besoin d'un design)
+        controller = new MainController(this);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new BrawlersFragment()).commit();
         controller.onStart();
 
-    }
+        //Bottom navigation bar
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        //Permet de désactiver les couleurs par défaut de la bottom navigation bar et ainsi appliquer nos couleurs perso avec les selector (drawable)
+        bottomNav.setItemIconTintList(null);
 
-
-    public void showList(List<Brawler> input){
-        // use a linear layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);          // On set notre layoutManager précédemment défini.
-        // define an adapter
-        mAdapter = new MyAdapter(input, this);
-        recyclerView.setAdapter(mAdapter);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem search = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) search.getActionView();
-        search(searchView);
-        return true;
     }
 
     @Override
@@ -67,18 +36,24 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void search(SearchView searchView) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Fragment selectedFragment = null;
+
+            switch (menuItem.getItemId()){
+                case R.id.brawlers_list:
+                    selectedFragment = new BrawlersFragment();
+                    break;
+                case R.id.ranking_list:
+                    selectedFragment = new RankingFragment();
+                    break;
             }
 
-            @Override
-            public boolean onQueryTextChange(String s) {
-                mAdapter.getFilter().filter(s);
-                return true;
-            }
-        });
-    }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+
+            return true;
+        }
+    };
+
 }

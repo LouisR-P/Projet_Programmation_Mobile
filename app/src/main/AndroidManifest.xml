@@ -12,14 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.BrawlersFragment"/>
+        <activity android:name=".view.RankingFragment"/>
         <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity"></activity>
+        <activity android:name=".view.MainActivity" />
         <activity android:name=".view.BrawlerActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="65a052d897384bbefac08890ad7b45f783bd75ed" />

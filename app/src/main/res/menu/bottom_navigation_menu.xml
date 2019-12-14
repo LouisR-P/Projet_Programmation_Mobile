@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/brawlers_list"
+        android:icon="@drawable/navigation_brawlers_selector"
+        android:title="@string/bottom_navigation_menu_brawlers" />
+    <item
+        android:id="@+id/ranking_list"
+        android:icon="@drawable/navigation_ranking_selector"
+        android:title="@string/bottom_navigation_menu_ranking" />
+</menu>
