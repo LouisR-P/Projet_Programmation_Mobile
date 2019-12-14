@@ -8,13 +8,14 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 
 ## Prérequis
 
-- Installation d'Android Studio.
-- Création de l'API Rest.
+- Installation d'Android Studio
+- Création d'un compte GitHub
+- Création de l'API Rest
 
 ## Consignes respectées :
-- Deux écrans : Un écran avec une liste et un écran avec un détail de l’item de cette liste.
-- Appel WebService à une API Rest.
-- Stockage des données en cache.
+- Deux écrans : Un écran avec une liste et un écran avec un détail de l’item de cette liste
+- Appel WebService à une API Rest
+- Stockage des données en cache
 - Fonctions supplémentaires :
   - Architecture MVC
   - Initiation à Gitflow (branche feature)
@@ -24,12 +25,13 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
   - Création d'une API Rest (bridge.buddyweb.fr)
   - Stockages en cache des données de l'API (sharedPreferences)
   - Implémentation de Fabric (Crash Analytics)
+  - Ajout de l'APK (chemin : app/src/main/java/com/example/myapplication)
  
 ## Fonctionnalités :
 
 ### Écran d'introduction
 
-- Splash affichant une pokeball.
+- Splash affichant un fond d'Écran BrawlStars.
 
 <img src="img_readme/brawlstars_splash.jpg" alt="splash">
 
