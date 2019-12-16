@@ -45,7 +45,7 @@ Cette application affiche les brawlers (personnages) du jeu BrawlStars à partir
 
 <img src="img_readme/brawlstars_accueil_barrederecherche.jpg" alt="recherche">
 
-- La barre de navigation inférieure personnalisée permet de sélectionner le fragment que l'on souhaite afficher. Voici le fragment "Faster" :
+- La barre de navigation inférieure personnalisée permet de sélectionner le fragment que l'on souhaite afficher. Voici le fragment "Faster" qui affiche les brawlers ayant une rapidité supérieure à la moyenne (830) :
 
 <img src="img_readme/brawlstars_fragmentfaster.jpg" alt="listebrawlersrapide">
 
