@@ -92,7 +92,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
         final String image = currentBrawler.getImage();
         Glide.with(context).asBitmap().load(image).into(holder.image);
 
-        holder.txtHeader.setOnClickListener(new OnClickListener() {     // Ouvre une nouvelle activité en cliquant sur un élément de la liste
+        holder.itemView.setOnClickListener(new OnClickListener() {     // Ouvre une nouvelle activité en cliquant sur un élément de la liste
             @Override
             public void onClick(View v) {
 

@@ -7,6 +7,6 @@
         android:title="@string/bottom_navigation_menu_brawlers" />
     <item
         android:id="@+id/ranking_list"
-        android:icon="@drawable/navigation_ranking_selector"
-        android:title="@string/bottom_navigation_menu_ranking" />
+        android:icon="@drawable/navigation_fast_selector"
+        android:title="@string/bottom_navigation_menu_fast" />
 </menu>

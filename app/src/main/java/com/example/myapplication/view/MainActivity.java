@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new BrawlersFragment();
                     break;
                 case R.id.ranking_list:
-                    selectedFragment = new RankingFragment();
+                    selectedFragment = new FastFragment();
                     break;
             }
 

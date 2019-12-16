@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Brawl Stars Guide</string>
     <string name="bottom_navigation_menu_brawlers">Brawlers</string>
-    <string name="bottom_navigation_menu_ranking">Classement</string>
+    <string name="bottom_navigation_menu_fast">Faster</string>
 </resources>

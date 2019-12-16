@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.BrawlersFragment"/>
-        <activity android:name=".view.RankingFragment"/>
+        <activity android:name=".view.FastFragment"/>
         <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

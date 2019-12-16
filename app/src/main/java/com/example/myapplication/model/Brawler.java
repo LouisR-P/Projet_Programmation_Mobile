@@ -76,4 +76,14 @@ public class Brawler {
         this.image3d = image3d;
     }
 
+    public boolean isFast(){
+        if (Integer.parseInt(this.vitesse) >= 730){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
